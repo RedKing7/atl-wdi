@@ -60,13 +60,45 @@ track of whether tasks have been completed, it will also keep track of
 how long each task took to complete. Tasks can be grouped into 'projects' to
 keep them organized.
 
-> Answer here
+>To-Do list
+> - list (array) of tasks
+> - completion status of tasks (boolean value)
+> - date/time value
+> - tasks have a 'project' attribute
+
+Having an array of task objects would allow you to dynamically add and remove new tasks,
+and also allows you to sort the tasks independantly of the todo list, and give each task
+the attributes of completion status, time taken to complete, and which 'project' group they belong to.
+
+```js 
+var to_do = {
+  task: [{
+    completed: (true or false),
+    date_completed: (number or Date object),
+    time_elapsed: (number),
+    project: (string)
+  }]
+};
+```
 
 ### 2. Photo Sharing App
 
 In this app, users can upload photos to their accounts and share them with others. These photos can be grouped into albums.
 
-> Answer here
+Users accounts can be made into objects, containing username and password information, friend list,
+array of 'photo' objects with album attributes.
+
+```js
+var user = {
+  username: (String),
+  password: (String),
+  friends: [(username), (username), ...],
+  photos: {
+    pic: (image filename),
+    album: (string)
+  }
+};
+```
 
 ### 3. Home Automation Manager
 
@@ -75,7 +107,21 @@ track of the time and temperature of the house that it monitors, and use that
 information to turn on and off different lights and adjust the thermostat up
 and down.
 
-> Answer here
+The home system object could contain objects for each of the controllable aspects of the house, each
+with their own states and values, maybe even an array of all the 'light' objects
+
+```js
+var smart_home = {
+  thermostat: {
+    temperature: (number),
+    AC: (boolean on or off)
+  }
+  lights: [{
+    on: (boolean),
+    brightness: (number)
+  }]
+};
+```
 
 ### 4. Sneaker Store
 
@@ -83,7 +129,16 @@ This app will allow customers to browse a list of products (sneakers, in this
 case), add those products to a cart, and save that cart as a past order once the
 purchase is complete.
 
-> Answer here
+The 'store' object could have an array of products, in this case shoes, a shopping cart
+which can contain 'shoe' objects, and an object for holding the previous order.
+
+```js
+var store = {
+  products: (shoes {price: (number), brand: (string), ...}),
+  cart: [(shoes)];
+  order: [(shoes)];
+};
+```
 
 ## Representing Abstractions in Code
 
@@ -139,7 +194,9 @@ var exampleLine = {
 
 What are some advantages and disadvantages of choosing these representations? Please give at least one example of each.
 
-> Answer here
+>  - Making the Stations attributes of the line could be confusing when multiple lines share a station
+>  - Not having any sort of order applied to the Stations makes it difficult to determine which stop is next
+>  + It makes the code neater encapsulating the Stations inside of the Line
 
 ### 6. Doctor Appointment App
 
@@ -242,7 +299,8 @@ Under what circumstances might one representation be a better choice than the
 other? Are there any circumstances in which the other representation might be
 the better choice?
 
-> Answer here
+> Option 1 makes it easy for Doctors to find when their appointments are, and whith whom, but would make it harder to search for an appointment by the patient's name
+> Option 2 makes it easier to find the name of the patient and the docter.
 
 ## Tying It Together
 
@@ -253,13 +311,29 @@ You've been tasked with building an in-browser tic-tac-toe game.
 a.  What are some possible entities that your application might use to model its
     data? Please pick at least two, with at least two properties apiece.
 
-  > Answer here
+  > - A 'board' matrix of squares ([x][y])
+  > - A scoreboard, with points for 'X's and 'O's
 
 b.  How might those entities be represented in JavaScript code?
 
-  > Answer here
+```js
+var game = {
+  board: [     //two-dimensional array, each square is either
+      [0,1,2], //'0', empty
+      [0,1,2], //'1', an 'X', or
+      [0,1,2]  //'2', an 'O'
+    ],
+  score: {
+    x: (number),
+    y: (number)
+  }
+};
+```
 
 c.  Justify your choices in a) and b). Why these entities? Why these
     representations?
 
-  > Answer here
+  > A matrix makes it easier to make an algorithm to check for 3 in a row
+  > Using numbers for the space values is more efficient than using two sets
+  > of booleans to show whether a space is empty and what shape is in it
+  > Having two seperate scores lets you keep track of multiple rounds
