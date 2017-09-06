@@ -3,7 +3,7 @@
 // number is the length of the corresponding string.
 
 const lengths = (arr) =>{
-    lengthArr = [];
+    let lengthArr = [];
     arr.forEach(function(element) {
         lengthArr.push(element.length);
     }, this);;
