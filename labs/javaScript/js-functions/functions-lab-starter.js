@@ -93,10 +93,6 @@ String.prototype.reverseString = function () {
 
 
 // Bonus 2
-//'hello' str
-//h 
-//e
-//l
 function charactersOccurencesCount(str) {
     let arr = str.toLowerCase().split('');
     let ob = {};

@@ -45,7 +45,7 @@ describe("HW",function(){
         timerUI.drawNumericDisplay(timerValue);
         expect(Number(document.getElementById('numeric-display').textContent)).to.equal(timerValue);
       });
-      xcontext("when the timer is down to the last ten seconds", function(){
+      context("when the timer is down to the last ten seconds", function(){
         it("changes the color of the text in the numeric display to 'red'", function(){
           let timerValue = 7;
           timerUI.drawNumericDisplay(timerValue);
