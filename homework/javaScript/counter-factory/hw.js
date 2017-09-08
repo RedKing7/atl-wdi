@@ -49,28 +49,41 @@ const CounterCollection = {
 const Presenter = {
   insertCounterComponent: function(newCountId){
     console.log(`insert counter component #${newCountId}`);
-    // Your Code Here
+    let newCounter = document.createElement('div');
+    newCounter.innerHTML = `<h3>Count: <span>0</span></h3> <button class='increment'> +1 </button> <button class='delete'> Delete </button>`;
+    newCounter.className += ' counter';
+    newCounter.dataset.countId = newCountId;
+    newCounter.getElementsByClassName('increment')[0].onclick = AppController.onClickIncrement;
+    newCounter.getElementsByClassName('delete')[0].onclick = AppController.onClickDelete;
+    document.getElementById('counter-list').appendChild(newCounter);
   },
   refreshCounterComponent: function(countId){
     console.log(`refresh counter component #${countId}`);
-    // Your Code Here
+    let count = CounterCollection.getCounterValue(countId);
+    document.querySelector(`[data-count-id="${countId}"] span`).innerHTML = count;
   },
-  removeCounterComponent: function(countId){             // REACH
+  removeCounterComponent: function(countId){
     console.log(`remove counter component #${countId}`);
-    // Your Code Here
+    let del = document.querySelector(`[data-count-id="${countId}"]`);
+    del.parentNode.removeChild(del);
   }
 };
 
 // Top-Level Application Control //
 const AppController = {
   onClickNewCounter: function(event){
-    // Your Code Here
+    CounterCollection.createCounter();
+    Presenter.insertCounterComponent(CounterCollection.lastCountId);
   },
   onClickIncrement: function(event){
-    // Your Code Here
+    let count = Number(event.target.parentNode.dataset.countId);
+    CounterCollection.incrementCounter(count);
+    Presenter.refreshCounterComponent(count);
   },
-  onClickDelete: function(event){                           // REACH
-    // Your Code Here
+  onClickDelete: function(event){
+    let counterId = Number(event.target.parentNode.dataset.countId);
+    CounterCollection.incrementCounter(counterId);
+    Presenter.removeCounterComponent(counterId);
   }
 };
 
