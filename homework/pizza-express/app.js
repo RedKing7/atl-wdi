@@ -1,6 +1,9 @@
 var express = require('express');
-
 var app = express();
+var hbs = require('hbs');
+
+app.set('view engine', 'hbs');
+app.set('views', './views')
 
 var port = 3000;
 
