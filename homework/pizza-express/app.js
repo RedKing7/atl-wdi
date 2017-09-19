@@ -24,6 +24,10 @@ app.get('/order/:amount/:size', (req, res)=>{
    });
 })
 
+app.get('/:other', (req, res)=>{
+   res.send('404 Pizza Not Found');
+})
+
 app.listen(port, ()=>{
    console.log("==========================")
    console.log('LISTENING ON PORT ' + port);
