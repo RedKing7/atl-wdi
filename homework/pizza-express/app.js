@@ -8,15 +8,20 @@ app.set('views', './views')
 var port = 3000;
 
 app.get('/', (req, res)=>{
-   res.send('Welcome to Pizza Express!');
+   res.render('index')
 })
 
 app.get('/topping/:type', (req, res)=>{
-   res.send(`${req.params.type} pizza! Good choice.`);
+   res.render('toppings', {
+      type: req.params.type
+   })
 })
 
 app.get('/order/:amount/:size', (req, res)=>{
-   res.send(`Your order for ${req.params.amount} ${req.params.size} pizzas will be ready in 1 minute! Cuz' we're stupid fast!`);
+   res.render('order', {
+      amount: req.params.amount,
+      size: req.params.size
+   });
 })
 
 app.listen(port, ()=>{
