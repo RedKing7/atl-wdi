@@ -17,11 +17,9 @@ const piratesController = require('./controllers/pirates_controller');
 const port = 3000;
 
 app.use('/pirates', piratesController);
-/*app.get('/pirates', (req, res)=>{
-   res.render('pirates', {
-
-   });
-});*/
+app.get('/', (req, res)=>{
+   res.redirect('/pirates');
+});
 
 app.listen(port, ()=>{
    console.log("==========================")
