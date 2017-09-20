@@ -5,6 +5,8 @@ var hbs = require('hbs');
 app.set('view engine', 'hbs');
 app.set('views', './views')
 
+app.use(express.static(__dirname + '/public'));
+
 var port = 3000;
 
 app.get('/', (req, res)=>{
