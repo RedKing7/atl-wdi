@@ -1,0 +1,26 @@
+body {
+   font-family: 'Arial Black';
+ }
+ li {
+   display: inline-block;
+   padding: 1em;
+ }
+ nav {
+   background-color: #ffeb3b;
+ }
+ img {
+   width: 300px;
+   height: 300px;
+ }
+ .recipe-div {
+   border: black 2px solid;
+   margin: 10px;
+   width: 300px;
+   height: 345px;
+   display: inline-block;
+ }
+ input {
+   padding: .5em;
+   margin: .5em;
+ }
+ 
