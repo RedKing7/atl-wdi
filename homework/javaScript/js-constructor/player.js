@@ -19,3 +19,8 @@ var player = {
 player.feedTamagotchi(t1);
 player.medicateTamagotchi(t1);
 player.knockOutTamagotchi(t1);
+
+t1.start();
+setTimeout(function(){
+  t1.stop();
+}, 40000)
