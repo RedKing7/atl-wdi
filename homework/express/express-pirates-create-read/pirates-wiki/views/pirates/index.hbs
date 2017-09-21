@@ -2,6 +2,14 @@
 
 <ul>
    {{#each pirates}}
-   <li><a href="/pirates/{{@index}}">{{name}}</a></li>
+   <li><a class='name' href="/pirates/{{@index}}">{{name}}</a></li>
+   <hr>
+   <span>
+      <a href="/pirates/{{@index}}/edit">Edit</a>
+      <form action="/pirates/{{@index}}?_method=DELETE" method='POST'>
+         <input type="submit" value="DELETE">
+      </form>
+   </span>
+   <hr><br>
    {{/each}}
 </ul>

@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const pirates = require('../models/pirates');
-
 const pirateList = require('../models/pirates');
 
 //index
@@ -22,7 +20,8 @@ router.get('/:id', (req, res) =>{
    const pirate = pirateList[id];
 
    res.render('pirates/show', {
-      pirate: pirate
+      pirate: pirate,
+      id: id
    })
 })
 
@@ -34,6 +33,41 @@ router.post('/', (req, res) =>{
    res.redirect('/pirates');
 })
 
-//router.post('',)
+//delete
+router.delete('/:id', (req, res)=>{
+   pirateList.splice(req.params.id, 1);//remove item from array
+   console.log('successful delete');   
+   res.redirect('/');
+})
+
+//edit
+router.get('/:id/edit', (req, res)=>{
+   const id = parseInt(req.params.id);
+   const pirateToEdit = pirateList[id];
+   res.render('pirates/edit', {
+      pirate: {
+         name: pirateToEdit.name,
+         birthplace: pirateToEdit.birthplace,
+         death_year: pirateToEdit.death_year,
+         base: pirateToEdit.base,
+         nickname: pirateToEdit.nickname
+      },
+      id: id
+   })
+})
+
+//put
+router.put('/:id', (req, res) =>{
+   const id = parseInt(req.params.id);   
+   const pirateToEdit = pirateList[id];
+   pirateToEdit.name = req.body.name;
+   pirateToEdit.birthplace = req.body.birthplace;
+   pirateToEdit.death_year = req.body.death_year;
+   pirateToEdit.base = req.body.base;
+   pirateToEdit.nickname = req.body.nickname;
+
+   console.log('successful put');
+   res.redirect('/pirates');
+})
 
 module.exports = router;

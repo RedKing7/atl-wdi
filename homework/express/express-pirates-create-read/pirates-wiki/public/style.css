@@ -22,11 +22,32 @@ a{
 }
 ul{
    background-image: -webkit-linear-gradient(left, rgba(7, 0, 112, 0.66), rgba(2, 0, 105, 0));
-   width: 40vw;
+   width: 50vw;
    color: #BBBBBB;
 }
 input{
    font-family: inherit;
    font-size: 26px;
    background-color: rgba(255, 255, 255, 0.7);
+}
+span{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 50vw;
+}
+.name{
+   font-size: 40px;
+   color: #EBEBEB;
+}
+hr{
+   margin: 5px;
+}
+.form-group{
+   color: #BBBBBB;   
+   background-image: -webkit-linear-gradient(left, rgba(7, 0, 112, 0.66), rgba(2, 0, 105, 0));
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 50vw;
 }

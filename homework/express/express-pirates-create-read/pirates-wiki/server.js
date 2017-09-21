@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+
 
 app.set('view engine', 'hbs');
 app.set('views', './views');
@@ -11,6 +13,9 @@ app.use(express.static(__dirname + '/public'));
 //body parser
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
+
+//method override
+app.use(methodOverride('_method'));
 
 const piratesController = require('./controllers/pirates_controller');
 
