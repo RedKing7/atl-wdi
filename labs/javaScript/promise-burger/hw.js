@@ -77,8 +77,6 @@ const customers = [
 ]
 
 // CODE FOR QUESTION 6 HERE
-kitchen.order(customers[0].order)
-  .then(kitchen.order(customers[1].order)
-  .then(kitchen.order(customers[2].order)
-  .then(kitchen.order(customers[3].order)
-  .then(console.log('All Orders Filled')))))
+Promise.all(customers.map(customer=>{
+  return kitchen.order(customer.order)
+})).then(console.log('All Orders Completed')).catch(console.log('Error'));
