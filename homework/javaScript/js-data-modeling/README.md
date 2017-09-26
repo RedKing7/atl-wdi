@@ -22,44 +22,220 @@ Let's consider an app we want to make, called Senior Paws. Senior Paws is an app
 Data Modeling Round 2! Take a look at each of the app descriptions below. For each description:
   1. Create a data model for the app by listing at least two relevant
 entities/abstractions (e.g. Senior Paws app, above) that the app might use, and list properties that make sense for that use case. You *don't* have to list all of them.
-  1. Create Javascript objects of those entities and assign what data type the _value_ of those properties should be
-  1. Give an example of a relationship of the model. Keep in mind, not _everything_ has to be connected to _everything_.
+  2. Create Javascript objects of those entities and assign what data type the _value_ of those properties should be
+  3. Give an example of a relationship of the model. Keep in mind, not _everything_ has to be connected to _everything_.
 
 ### 1. Ultra E-mail App
 
 This app provides easy access to all your e-mail service providers in one app. The app will let you select one of your email addresses and view your e-mails for that address.
 
+Email address:
+- username
+- password
+- inbox
+- outbox
+
+User:
+- username
+- password
+- primary email address
+- secondary email address(es)
 ```
-Write your answer here or in a separate js file.
+const Email = {
+  username: String,
+  password: String,
+  inbox: [Messages],
+  outbox: [Messages]
+}
+
+const User = {
+  username: String,
+  password: String,
+  primaryEmail: Email,
+  secondaryEmails: [Email]
+}
+
+const exampleEmail = {
+  username: 'john.doe@example.com',
+  password: 'p@SsW0rD',
+  inbox: [...],
+  outbox: [...]
+}
+
+const exampleUser = {
+  username: 'John_Doe321',
+  password: 'p@SsW0rD',
+  primaryEmail: exampleEmail,
+  secondaryEmails: []
+}
 ```
 
 ### 2. Radio on the Internet app
 
 This app hosts a ton of radio stations, each featuring their own playlists of songs. The radio stations can be listed by genre or popularity.
 
+Radio Station:
+- playlists
+- genre
+- popularity
 
+Playlist:
+- albums
+- songs
+- artists
 ```
-Write your answer here or in a separate js file.
+const RadioStation = {
+  playlists: [Playlist],
+  genre: String,
+  popularity: Number
+}
+
+const Playlist = {
+  albums: [Albums],
+  songs: [Songs],
+  artists: [Artists]
+}
+
+const examplePlaylist = {
+  albums: [smokeAndMirrors, nightVisions],
+  songs: [demons, iBetMyLife, shots],
+  artists: [imagineDragons]
+}
+
+const exampleStation = {
+  playlists: [examplePlaylist, ...],
+  genre: 'Alternative',
+  popularity: 76
+}
 ```
 
 ### 3. Rock Concert App
 
 This app will be a tool for managing all of your favorite bands' concerts; it will keep track of their tour dates, ticket purchasing, and next recommended show.
 
+
+Band:
+- name
+- tours
+- top songs
+
+Tours:
+- dates
+- ticket prices
+- next show
 ```
-Write your answer here or in a separate js file.
+const Tour = {
+  dates: [Date],
+  ticketPrices: [Number],
+  nextShow: [Date]
+}
+
+const Band = {
+  name: String,
+  tours: [Tour],
+  topSongs: [String]
+}
+
+exampleTour = {
+  dates: [Nov4, May3, ...],
+  ticketPrices: [100, 95, 130],
+  nextShow: [Nov4]
+}
+
+exampleBand = {
+  name: 'Relient K',
+  tours: [exampleTour],
+  topSongs: ['Be My Escape', 'Deathbed', 'Who I am Hates Who I've Been']
+}
 ```
 
 ### 4. Coffee To-Go App
 
 This app will allow customers to browse a list of coffeeshops nearby, order drinks off of their menu, add those drinks to a shopping cart, and save that cart as a past order once the purchase is complete.
 
+
+Coffeeshop:
+- name
+- location
+- drinks
+- shopping cart
+- past orders
+
+Drink:
+- name
+- ingredients
+- price
+- picture
+```
+const Drink = {
+  name: String
+  pictureUrl: String,
+  price: Number,
+  ingredients: String
+}
+
+const Coffeshop = {
+  name: String,
+  location: String,
+  drinks: [Drink],
+  cart: [Drink],
+  pastOrder: [Drink]
+}
+
+const exampleDrink = {
+  name: 'Pink Drink',
+  pictureUrl: 'exampleImage.png',
+  price: 10,
+  ingredients: 'Strawberry, cream, etc...'
+}
+
+const exampleShop = {
+  name: 'Starbucks',
+  location: 'Ponce De Leon Ave.',
+  drinks: [exampleDrink, ...],
+  cart: [exampleDrink, ...],
+  pastOrder: []
+}
+```
+
 ### 5. Team Tracker App
 
 This app shows you all the latest stats from your favorite sports teams. You can view individual player stats and full team stats.
 
+
+Team:
+- name
+- sport
+- stats
+- players
+
+Player:
+- name
+- stats
 ```
-Write your answer here or in a separate js file.
+const Player = {
+  name: String,
+  stats: Stats
+}
+
+const Team = {
+  name: String,
+  sport: String,
+  stats: Stats,
+  players: [Player]
+}
+
+const examplePlayer = {
+  name: 'John Doe'.
+  stats: Stats
+}
+
+const exampleTeam = {
+  name: 'Tractors',
+  sport: 'Football',
+  stats: Stats,
+  players: [examplePlayer, ...]
+}
 ```
 
 
@@ -67,9 +243,10 @@ Write your answer here or in a separate js file.
 
 Q. When you were creating relationships between the models, what were some thoughts or questions you had to help guide a connection between them?
 
-```
-Write your answer here or in a separate js file.
-```
+A.
+- How will this data be used?
+- What information is necessary and needs to be accessible directly?
+
 
 ### Reading and Videos for Tomorrow
 Now that you've had some practice really thinking about the data design of an app, we're going to learn about MongoDB, a no-SQL database. Starting tomorrow, our Express apps will be talking to the Mongo database through Mongoose. Since we're covering a LOT of ground tomorrow, take some time to introduce yourself to concepts and lingo surrounding MongoDB and Mongoose. You will _not_ have to memorize the technical details here.

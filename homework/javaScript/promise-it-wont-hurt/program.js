@@ -26,12 +26,14 @@
 // })
 
 //to reject or not to reject
-let promise = new Promise((fulfill, reject)=>{
-   fulfill('I FIRED');
-   reject(new Error('I DID NOT FIRE'));
-})
-let onRejected = function(error){
-   console.log(error.message);
-}
-promise.then(console.log)
-       .catch(onRejected);
+// let promise = new Promise((fulfill, reject)=>{
+//    fulfill('I FIRED');
+//    reject(new Error('I DID NOT FIRE'));
+// })
+// let onRejected = function(error){
+//    console.log(error.message);
+// }
+// promise.then(console.log)
+//        .catch(onRejected);
+
+//always asynchronous
