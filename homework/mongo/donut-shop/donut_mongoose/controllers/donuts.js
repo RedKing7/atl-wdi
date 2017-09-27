@@ -82,10 +82,12 @@ router.post('/', (req,res)=>{
 // Create a GET edit route "/:id/edit" that renders the edit.hbs page and
 // sends that donut's data to it
 router.get('/:id/edit', (req,res)=>{
-   
-   Donut.find({})
-   .then((donuts)=>{
-      res.render('donuts/index');
+   let thisId = req.params.id;
+   Donut.findById(thisId)
+   .then((donut)=>{
+      res.render('donuts/edit',{
+         donut
+      });
    })
    .catch((err)=>{
       console.log(err);
