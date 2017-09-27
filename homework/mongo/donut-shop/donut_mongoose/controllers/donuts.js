@@ -103,7 +103,7 @@ router.get('/:id/edit', (req,res)=>{
 router.put('/:id', (req,res)=>{
    const updateDonut = req.body;
    const idToUpdate = req.params.id;
-   StudentModel.findOneAndUpdate({_id: idToUpdate}, updateDonut, {new: true})
+   Donut.findOneAndUpdate({_id: idToUpdate}, updateDonut, {new: true})
       .then(()=>{
          res.redirect(`/${idToUpdate}`);
       })
