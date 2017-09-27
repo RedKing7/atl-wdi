@@ -58,14 +58,21 @@ router.get('/:id', (req,res)=>{
 // Create a POST index route "/" that creates a new donut
 // and upon success redirects back to the index page "/"
 router.post('/', (req,res)=>{
-   
-   Donut.find({})
-   .then((donuts)=>{
-      res.render('donuts/index');
+   const newDonut = req.body;
+      
+   Donut.create({
+         name: newDonut.name,
+         description: newDonut.description,
+         img: newDonut.img,
+         price: newDonut.price,
+         qty: newDonut.qty
    })
-   .catch((err)=>{
-      console.log(err);
-   })
+      .then(()=>{
+         res.redirect('/')
+      })
+      .catch((err)=>{
+         console.log(err);
+      })
 })
 
 
