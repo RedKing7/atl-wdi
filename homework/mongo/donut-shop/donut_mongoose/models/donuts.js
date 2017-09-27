@@ -5,6 +5,10 @@ mongoose.Promise = global.Promise;
 //create your donut schema:
 const Schema = mongoose.Schema;
 
+const positive = (value) =>{
+   return value >= 0;
+}
+
 const DonutSchema = new Schema({
    name: {
       type: String,
@@ -15,8 +19,16 @@ const DonutSchema = new Schema({
       required: true
    },
    img: String,
-   price: Number,
-   qty: Number
+   price: {
+      type: Number,
+   },
+   qty: {
+      type: Number,
+      validate : {
+         validator : Number.isInteger,
+         message   : '{VALUE} must be integer'
+       },
+   }
 })
 
 const DonutModel = mongoose.model('Donut', DonutSchema);

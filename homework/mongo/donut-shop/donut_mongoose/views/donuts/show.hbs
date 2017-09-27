@@ -31,15 +31,25 @@
 
 			<h3 id="quantity">
 
-	 				{{donut.qty}} remaining
+					{{#if donut.qty}}
+
+	 					{{donut.qty}} remaining
+
+						<form action="/{{donut._id}}/buy/1?_method=PUT" method='POST'>
+							<button id='buy' type='submit'>Buy</button>
+						</form>
+
+					{{else}}
+
+						Out of stock
+
+					{{/if}}
 
 			</h3>
 
 			<br>
 
 			<a href="/{{donut._id}}/edit">Edit</a>
-
-			{{!--<<<< BONUS: BUTTON THAT UPDATES THE COUNT >>>>--}}
 
 			<form action="/{{donut._id}}?_method=DELETE" method="POST">
 				<button type='submit' value='Delete'>Delete</button>

@@ -11,6 +11,14 @@
 
 				<p>$ {{this.price}} each </p>
 
+				{{#if this.qty}}
+
+				{{else}}
+
+					Out of Stock
+
+				{{/if}}
+
 			</div>
 
 		{{/each}}

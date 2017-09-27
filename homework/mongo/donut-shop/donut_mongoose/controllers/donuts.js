@@ -131,6 +131,37 @@ router.delete('/:id', (req,res)=>{
 })
 
 //======================
+// BUY
+//======================
+//using '/:quantity' allows for adding multiple donuts at once
+//if the option were to be added
+router.put('/:id/buy/:quantity', (req,res)=>{
+   const idBought = req.params.id;
+   let qtyBought = req.params.quantity;
+
+   Donut.findById(idBought)
+      .then((donut)=>{
+
+         if(donut.qty - qtyBought >= 0){
+
+            Donut.findOneAndUpdate(
+               {_id: idBought},
+               {'qty': donut.qty - qtyBought},
+               {new: true})
+               .then(()=>{
+                  res.redirect(`/${idBought}`);
+               })
+               .catch((err)=>{
+                  console.log(err)
+               })
+
+            }
+
+      })
+      .catch((err)=>{console.log(err)});
+})
+
+//======================
 // EXPORTS
 //======================
 // export router with module.exports
