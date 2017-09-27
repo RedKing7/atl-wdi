@@ -101,7 +101,15 @@ router.get('/:id/edit', (req,res)=>{
 // Create a PUT update route "/:id" that updates the donut and
 // redirects back to the SHOW PAGE (not index)
 router.put('/:id', (req,res)=>{
-   
+   const updateDonut = req.body;
+   const idToUpdate = req.params.id;
+   StudentModel.findOneAndUpdate({_id: idToUpdate}, updateDonut, {new: true})
+      .then(()=>{
+         res.redirect(`/${idToUpdate}`);
+      })
+      .catch((err)=>{
+         console.log(err)
+      })
 })
 
 
