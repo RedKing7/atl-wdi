@@ -13,6 +13,7 @@ competencies: Front-end frameworks
 
 * Discuss the need for `state` in front-end applications
 * Manipulate state within a React application
+* Differentiate between state and props
 * Discuss the need to share `state` across different parts of the application
 * Share state across multiple React components
 * Use Constructors to manage state and set up default values
@@ -789,7 +790,7 @@ This `...` syntax tells Javascript to make a copy of our `this.state.newProduct`
 
   ...
   <div>
-    <form onSubmit={this_addNewProduct}>
+    <form onSubmit={this.addNewProduct}>
       <div><input name="productName" type="text" placeholder="Name" onChange={this.handleNewProductChange}/></div>
       <div><input name="description" type="text" placeholder="Description" onChange={this.handleNewProductChange}/></div>
       <div><input name="price" type="number" min="0.00" step="0.01" placeholder="Price" onChange={this.handleNewProductChange}/></div>
