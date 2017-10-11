@@ -10,6 +10,7 @@ const Search = (props) => {
 
   const handleTitleChange = (e) =>{
     title = e.target.value;
+    title = title.split(' ').join('+');
     console.log(title)
   }
 

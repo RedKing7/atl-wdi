@@ -20,7 +20,6 @@ class App extends Component {
     console.log("Search by Title", title);
     // title = 'princess+bride'
     axios.get(`http://www.omdbapi.com/?apikey=${key}&`, { params: { t: title}})
-    // Step 5: Save the response array to this.state.savedGifs
     .then((response) => {
       const movie = response.data;
       this.setState({movie: movie});
@@ -34,7 +33,6 @@ class App extends Component {
     console.log("Search by ID", id);
     // id = 'tt0076759';
     axios.get(`http://www.omdbapi.com/?apikey=${key}&`, { params: { i: id}})
-    // Step 5: Save the response array to this.state.savedGifs
     .then((response) => {
       const movie = response.data;
       this.setState({movie: movie});
@@ -50,13 +48,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Search searchByTitle={this.searchByTitle} searchById={this.searchById}/>
-        <Movie
-          title={this.state.movie.Title}
-          released={this.state.movie.Released}
-          director={this.state.movie.Director}
-          genre={this.state.movie.Genre}
-          plot={this.state.movie.Plot}
-        />
+        <Movie movie={this.state.movie}/>
       </div>
     );
   }
