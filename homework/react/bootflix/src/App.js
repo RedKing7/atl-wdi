@@ -48,7 +48,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Search searchByTitle={this.searchByTitle} searchById={this.searchById}/>
-        <Movie movie={this.state.movie}/>
+        <Movie movie={this.state.movie} api={key}/>
       </div>
     );
   }
