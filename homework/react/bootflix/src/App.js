@@ -17,8 +17,8 @@ class App extends Component {
 
   //Update these methods to make axios calls to OMDB and update this.state.movie with the response from the server
   searchByTitle = (title) => {
-    console.log("Search by Title");
-    title = 'princess+bride'
+    console.log("Search by Title", title);
+    // title = 'princess+bride'
     axios.get(`http://www.omdbapi.com/?apikey=${key}&`, { params: { t: title}})
     // Step 5: Save the response array to this.state.savedGifs
     .then((response) => {
@@ -31,8 +31,8 @@ class App extends Component {
   }
 
   searchById = (id) => {
-    console.log("Search by ID");
-    id = 'tt0076759';
+    console.log("Search by ID", id);
+    // id = 'tt0076759';
     axios.get(`http://www.omdbapi.com/?apikey=${key}&`, { params: { i: id}})
     // Step 5: Save the response array to this.state.savedGifs
     .then((response) => {
