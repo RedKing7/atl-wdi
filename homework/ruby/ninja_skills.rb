@@ -31,7 +31,7 @@ puts e
 d = e
 puts d
 
-=end
+
 #Challenge 4
 #1
 christine = 'Hi, I\'m Christine'
@@ -47,3 +47,16 @@ g_to_number = 2
 #6
 #puts g + g_to_number  '+' isn't method of string class
 puts g + g_to_number.to_s
+
+=end
+#Challenge 5
+#1
+print 'Integer? '
+num = gets.chomp.to_i
+puts num * 2
+#2
+print 'Name? '
+name = gets.chomp
+print 'Likes? '
+likes = gets.chomp
+puts "#{name} likes #{likes}."
