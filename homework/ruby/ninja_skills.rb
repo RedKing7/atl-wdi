@@ -60,7 +60,7 @@ name = gets.chomp
 print 'Likes? '
 likes = gets.chomp
 puts "#{name} likes #{likes}."
-=end
+
 
 #Challenge 6
 my_first_array = []
@@ -72,3 +72,16 @@ my_first_array[2] = 3
 my_first_array.push(true)
 my_first_array.push(my_first_array[3].class)
 print my_first_array
+=end
+
+#Challenge 7
+my_favorite_animals = {
+   'Tucker' => 'Dog',
+   'Edgar' => 'Donkey',
+   'Severus' => 'Snake',
+   'Yogi' => 'Bear',
+   'Garfield' => 'Cat'
+}
+my_favorite_animals['Edgar'] = 'Bear'
+favorite_movie = {}
+favorite_movie[:movie] = 'The Princess Bride'
