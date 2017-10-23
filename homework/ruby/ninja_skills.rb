@@ -72,7 +72,7 @@ my_first_array[2] = 3
 my_first_array.push(true)
 my_first_array.push(my_first_array[3].class)
 print my_first_array
-=end
+
 
 #Challenge 7
 my_favorite_animals = {
@@ -85,3 +85,36 @@ my_favorite_animals = {
 my_favorite_animals['Edgar'] = 'Bear'
 favorite_movie = {}
 favorite_movie[:movie] = 'The Princess Bride'
+=end
+
+#Challenge 8
+first_range = (1..10)
+first_range = first_range.to_a
+second_range = (1...1000)
+second_range = second_range.to_a
+for number in first_range do
+  number = number.to_s
+  puts "#{number} #{number.class}"
+end
+x = 0
+while x < 50
+   print second_range[x], ' '
+   x = x.next
+end
+puts
+new = []
+first_range.each do |number|
+  new.push(number * 2)
+end
+print new
+puts
+first_range.map! do |number, index|
+  if number.even?
+   number = number.to_s
+  else
+   number = number
+  end
+end
+for number in first_range do
+   puts "#{number} #{number.class}"
+end
