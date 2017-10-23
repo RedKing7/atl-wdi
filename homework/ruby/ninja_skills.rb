@@ -1,5 +1,3 @@
-=begin
-
 #challenge 1
 #1
 a = true
@@ -129,7 +127,7 @@ for i in 0..1000
 end
 puts multiples.reduce :+
 
-=end
+
 #The Final Challenge
 require 'prime'
 def check_prime? num
