@@ -119,7 +119,7 @@ for number in first_range do
   puts "#{number} #{number.class}"
 end
 
-=end
+
 #Challenge 9
 multiples = []
 for i in 0..1000
@@ -128,3 +128,20 @@ for i in 0..1000
   end
 end
 puts multiples.reduce :+
+
+=end
+#The Final Challenge
+require 'prime'
+def check_prime? num
+  if num.prime?
+    true
+  else
+    false
+  end
+end
+
+def get_primes num
+  Prime.each(num) do |prime|
+    p prime
+  end
+end
