@@ -48,7 +48,7 @@ g_to_number = 2
 #puts g + g_to_number  '+' isn't method of string class
 puts g + g_to_number.to_s
 
-=end
+
 #Challenge 5
 #1
 print 'Integer? '
@@ -60,3 +60,15 @@ name = gets.chomp
 print 'Likes? '
 likes = gets.chomp
 puts "#{name} likes #{likes}."
+=end
+
+#Challenge 6
+my_first_array = []
+my_first_array = ['one', 2, 'three', 4, 'five', 6, 'seven', 8, 'nine']
+puts my_first_array.last
+puts my_first_array.first
+my_first_array[1] = 'Joe'
+my_first_array[2] = 3
+my_first_array.push(true)
+my_first_array.push(my_first_array[3].class)
+print my_first_array
