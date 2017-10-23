@@ -85,7 +85,7 @@ my_favorite_animals = {
 my_favorite_animals['Edgar'] = 'Bear'
 favorite_movie = {}
 favorite_movie[:movie] = 'The Princess Bride'
-=end
+
 
 #Challenge 8
 first_range = (1..10)
@@ -98,8 +98,8 @@ for number in first_range do
 end
 x = 0
 while x < 50
-   print second_range[x], ' '
-   x = x.next
+  print second_range[x], ' '
+  x = x.next
 end
 puts
 new = []
@@ -116,5 +116,15 @@ first_range.map! do |number, index|
   end
 end
 for number in first_range do
-   puts "#{number} #{number.class}"
+  puts "#{number} #{number.class}"
 end
+
+=end
+#Challenge 9
+multiples = []
+for i in 0..1000
+  if i%3 == 0 || i%5 == 0
+    multiples.push(i)
+  end
+end
+puts multiples.reduce :+
