@@ -8,14 +8,12 @@ import axios from 'axios';
 const key = 'd31f1a94';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      movie: example
-    }
+  state = {
+    movie: example
   }
 
   //Update these methods to make axios calls to OMDB and update this.state.movie with the response from the server
+<<<<<<< HEAD
   searchByTitle = (title) => {
     console.log("Search by Title", title);
     // title = 'princess+bride'
@@ -40,9 +38,17 @@ class App extends Component {
     .catch((error) => {
       console.error("Error: ", error);
     });
+=======
+  searchByTitle = () => {
+    console.log("Search by Title");
   }
 
-  //Pass _searchByTitle, _searchById, and this.state.movie to it's appropriate child components.
+  searchById = () => {
+    console.log("Search by ID");
+>>>>>>> 2f37674758137f42ba7cf539ea877fa754e057cc
+  }
+
+  //Pass searchByTitle, searchById, and this.state.movie to it's appropriate child components.
   render() {
     return (
       <div className="App">
